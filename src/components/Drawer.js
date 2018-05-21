@@ -6,13 +6,10 @@ import {
   Drawer,
   ListItem,
   ListItemText,
-  ListItemIcon,
   Divider,
   List
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-import InboxIcon from '@material-ui/icons/Inbox';
-import StarIcon from '@material-ui/icons/Star';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 
 class CbDrawer extends React.Component {
@@ -55,17 +52,15 @@ class CbDrawer extends React.Component {
         </AppBar>
 
         <Drawer variant="persistent" open={this.state.open}>
-          <div>
-            <IconButton onClick={this.toggleDrawer}>
-              <ChevronLeftIcon/>
-            </IconButton>
-          </div>
+          <IconButton onClick={this.toggleDrawer}>
+            <ChevronLeftIcon/>
+          </IconButton>
           <Divider/>
           <List>
             {menu.map(m => {
               return (
-                <div>
-                  <ListItem button key={m.label}>
+                <div key={m.label}>
+                  <ListItem button>
                     <ListItemText >{m.label}</ListItemText>
                   </ListItem>
                   <Divider/>
@@ -81,7 +76,7 @@ class CbDrawer extends React.Component {
   getConfiguration() {
     let config = this.props.config || {};
     config.position = config.position || "fixed";
-    config.color = config.color || "accent";
+    config.color = config.color || "secondary";
 
     return config;
   }
