@@ -46,6 +46,14 @@ class CbDrawer extends React.Component {
 
     return (
       <div>
+        <AppBar position={config.position} color={config.color}>
+          <Toolbar>
+            <IconButton aria-label="Menu" onClick={this.toggleDrawer}>
+              <MenuIcon/>
+            </IconButton>
+          </Toolbar>
+        </AppBar>
+
         <Drawer variant="persistent" open={this.state.open}>
           <div>
             <IconButton onClick={this.toggleDrawer}>
